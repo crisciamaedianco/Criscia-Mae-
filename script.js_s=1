@@ -1,0 +1,58 @@
+function add() {
+    const val = id => document.getElementById(id).value.trim();
+    const [f, m, l, a, e] = ['fn', 'mn', 'ln', 'age', 'em'].map(val);
+
+    if (!f || !l || !a || !e) {
+        return Swal.fire('Missing Info!', 'Please fill all required (*) fields.', 'warning');
+    }
+
+    const row = document.querySelector('#qTable tbody').insertRow(0);
+    [f, m || "-", l, a, e].forEach((text, i) => row.insertCell(i).innerText = text);
+
+    Swal.fire({ 
+        title: 'Welcome!', 
+        icon: 'success', 
+        timer: 1500, 
+        showConfirmButton: false 
+    });
+
+    ['fn', 'mn', 'ln', 'age', 'em'].forEach(id => document.getElementById(id).value = '');
+}
+
+function login() {
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+
+
+    const validUsername = "Criscia mae";
+    const validPassword = "maycee0706";
+
+    if (username === validUsername && password === validPassword) {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Logged in successfully!',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+        }).then(() => {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('queueSection').style.display = 'flex'; 
+        });
+    } else {
+        Swal.fire('Error!', 'Invalid username or password.', 'error');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('queueSection').style.display = 'none';
+
+    const loginButton = document.getElementById('loginBtn');
+    if (loginButton) {
+        loginButton.addEventListener('click', login);
+    }
+
+    const addButton = document.getElementById('addBtn');
+    if (addButton) {
+        addButton.addEventListener('click', add);
+    }
+});
