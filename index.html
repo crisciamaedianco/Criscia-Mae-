@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blue queue</title>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-pink@4/pink.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<header>Maycee's Attendance</header>
+
+<div class="container">
+    <div class="box" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username/Email *">
+        <input type="password" id="loginPassword" placeholder="Password *">
+        <button id="loginBtn">Login</button>
+    </div>
+
+    <div id="queueSection" style="display: none;">
+        <div class="box">
+            <h2>Check-In</h2>
+            <input type="text" id="fn" placeholder="First Name *">
+            <input type="text" id="mn" placeholder="Middle Name (Optional)">
+            <input type="text" id="ln" placeholder="Last Name *">
+            <input type="number" id="age" placeholder="Age *">
+            <input type="email" id="em" placeholder="Email *">
+            <button id="addBtn">Add to Queue</button>
+        </div>
+
+        <div class="box" style="flex: 2;">
+            <h2>Attendance</h2>
+            <table id="qTable">
+                <thead>
+                    <tr>
+                        <th>First</th><th>Middle</th><th>Last</th><th>Age</th><th>Email</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
+</body>
+</html>
+}
